@@ -99,7 +99,7 @@ class ArticleTest extends TestCase
             'description' => 'Updated description',
         ];
 
-        $response = $this->json('PUT', 'api/articles/'.$article->id, $payload);\
+        $response = $this->json('PUT', 'api/articles/'.$article->id, $payload);
         $response->assertStatus(200)
             ->assertJson($payload);
         

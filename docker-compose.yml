@@ -56,8 +56,8 @@ services:
             - laravel
     php:
         build: 
-            context: .
-            dockerfile: Dockerfile
+            context: ./docker-files
+            dockerfile: app.dockerfile
         container_name: php
         volumes: 
             - ./:/var/www/html
@@ -68,6 +68,9 @@ services:
             - laravel
     composer:
         image: composer:latest
+        build: 
+            context: ./docker-files/
+            dockerfile: composer.dockerfile
         container_name: composer
         volumes:
             - ./:/var/www/html
